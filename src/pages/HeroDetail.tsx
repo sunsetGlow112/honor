@@ -44,6 +44,25 @@ export default function HeroDetail() {
   };
 
   const handleAudioClick = async () => {
+    // 检查是否有缓存的语音URL
+    const cachedUrl = localStorage.getItem(`hero_audio_${heroId}`);
+    
+    if (cachedUrl) {
+      // 使用缓存的URL
+      if (audioRef.current) {
+        audioRef.current.pause();
+      }
+      const audio = new Audio(cachedUrl);
+      audioRef.current = audio;
+      audio.play();
+      toast({
+        title: '播放语音',
+        description: `正在播放${hero.name}的语音（使用缓存）`,
+      });
+      return;
+    }
+
+    // 如果有内存中的URL，直接播放
     if (audioUrl && audioRef.current) {
       audioRef.current.play();
       toast({
@@ -85,6 +104,9 @@ export default function HeroDetail() {
         if (taskInfo.task_status === 'Success' && taskInfo.task_result?.speech_url) {
           const url = taskInfo.task_result.speech_url;
           setAudioUrl(url);
+          
+          // 保存到localStorage
+          localStorage.setItem(`hero_audio_${heroId}`, url);
 
           const audio = new Audio(url);
           audioRef.current = audio;

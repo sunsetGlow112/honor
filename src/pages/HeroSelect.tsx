@@ -18,11 +18,11 @@ export default function HeroSelect() {
   const heroPositions = [
     { id: 'kai', style: { top: '32%', left: '18%' } },
     { id: 'caiweniji', style: { top: '32%', left: '28%' } },
-    { id: 'hero3', style: { top: '32%', left: '38%' } },
-    { id: 'hero4', style: { top: '32%', left: '48%' } },
-    { id: 'hero5', style: { top: '32%', left: '58%' } },
-    { id: 'hero6', style: { top: '45%', left: '18%' } },
-    { id: 'hero7', style: { top: '45%', left: '28%' } },
+    { id: 'sunwukong', style: { top: '32%', left: '38%' } },
+    { id: 'houyi', style: { top: '32%', left: '48%' } },
+    { id: 'zhubajie', style: { top: '32%', left: '58%' } },
+    { id: 'lvbu', style: { top: '45%', left: '18%' } },
+    { id: 'guanyu', style: { top: '45%', left: '28%' } },
     { id: 'hero8', style: { top: '45%', left: '38%' } },
     { id: 'hero9', style: { top: '45%', left: '48%' } },
     { id: 'hero10', style: { top: '45%', left: '58%' } },
@@ -34,8 +34,10 @@ export default function HeroSelect() {
   ];
 
   const handleHeroClick = (heroId: string) => {
-    // 只有凯和蔡文姬有详情页
-    if (heroId === 'kai' || heroId === 'caiweniji') {
+    // 已开放的英雄列表
+    const availableHeroes = ['kai', 'caiweniji', 'sunwukong', 'houyi', 'zhubajie', 'lvbu', 'guanyu'];
+    
+    if (availableHeroes.includes(heroId)) {
       navigate(`/hero-detail/${heroId}`);
     } else {
       toast({

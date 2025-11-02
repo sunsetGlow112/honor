@@ -11,6 +11,7 @@ export interface Hero {
   voiceText: string[];
   detailImage: string;
   voiceConfig: VoiceConfig;
+  cachedAudioUrl?: string;
 }
 
 export const heroes: Hero[] = [
@@ -43,6 +44,93 @@ export const heroes: Hero[] = [
       voice: 4,
       speed: 5,
       pitch: 7,
+      volume: 9,
+    },
+  },
+  {
+    id: 'sunwukong',
+    name: '孙悟空',
+    voiceText: [
+      '歌唱一首《孤勇者》',
+      '爱你孤身走暗巷，爱你不跪的模样',
+      '爱你对峙过绝望，不肯哭一场',
+      '爱你破烂的衣裳，却敢堵命运的枪',
+      '爱你和我那么像，缺口都一样',
+      '去吗？配吗？这褴褛的披风',
+      '战吗？战啊！以最卑微的梦',
+      '致那黑夜中的呜咽与怒吼，谁说站在光里的才算英雄',
+    ],
+    detailImage: 'https://miaoda-conversation-file.cdn.bcebos.com/user-79ww43jdlwcg/conv-79wzg8jncmio/20251102/file-79xputnp22v4.png',
+    voiceConfig: {
+      voice: 1,
+      speed: 5,
+      pitch: 4,
+      volume: 9,
+    },
+  },
+  {
+    id: 'houyi',
+    name: '后羿',
+    voiceText: [
+      '走猫步',
+      '绕全班过道用猫步走一圈，',
+      '停顿三次，并摆三个搞笑',
+      '的造型。',
+    ],
+    detailImage: 'https://miaoda-conversation-file.cdn.bcebos.com/user-79ww43jdlwcg/conv-79wzg8jncmio/20251102/file-79xqcd1kxudc.png',
+    voiceConfig: {
+      voice: 1,
+      speed: 5,
+      pitch: 5,
+      volume: 9,
+    },
+  },
+  {
+    id: 'zhubajie',
+    name: '猪八戒',
+    voiceText: [
+      '四小天鹅',
+      '请找到你的小伙伴，并像',
+      '图片一样手挽手上台一起',
+      '跳一段四小天鹅。',
+    ],
+    detailImage: 'https://miaoda-conversation-file.cdn.bcebos.com/user-79ww43jdlwcg/conv-79wzg8jncmio/20251102/file-79xqqe5hx5og.png',
+    voiceConfig: {
+      voice: 1,
+      speed: 5,
+      pitch: 6,
+      volume: 9,
+    },
+  },
+  {
+    id: 'lvbu',
+    name: '吕布',
+    voiceText: [
+      '来跳舞吧',
+      '请拉上你两个好朋友',
+      '上台来表演这一段舞蹈。',
+    ],
+    detailImage: 'https://miaoda-conversation-file.cdn.bcebos.com/user-79ww43jdlwcg/conv-79wzg8jncmio/20251102/file-79xr3jowt24g.png',
+    voiceConfig: {
+      voice: 1,
+      speed: 5,
+      pitch: 4,
+      volume: 9,
+    },
+  },
+  {
+    id: 'guanyu',
+    name: '关羽',
+    voiceText: [
+      '表演一段才艺',
+      '请上台表演一段你最拿手的才艺，',
+      '可以是唱歌、跳舞、讲笑话等。',
+    ],
+    detailImage: 'https://miaoda-conversation-file.cdn.bcebos.com/user-79ww43jdlwcg/conv-79wzg8jncmio/20251102/file-79xr3jowt24g.png',
+    voiceConfig: {
+      voice: 1,
+      speed: 5,
+      pitch: 3,
       volume: 9,
     },
   },
