@@ -55,7 +55,7 @@ export default function HeroDetail() {
 
     setIsLoadingAudio(true);
     try {
-      const taskResponse = await api.createTTSTask(hero.voiceText);
+      const taskResponse = await api.createTTSTask(hero.voiceText, hero.voiceConfig);
 
       if (taskResponse.status !== 0) {
         throw new Error(taskResponse.msg || '创建语音任务失败');

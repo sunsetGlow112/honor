@@ -1,4 +1,5 @@
 import axios from 'axios';
+import type { VoiceConfig } from '@/types/hero';
 
 const APP_ID = import.meta.env.VITE_APP_ID;
 
@@ -48,14 +49,14 @@ export interface TTSResultResponse {
 
 const api = {
   // 创建语音合成任务
-  createTTSTask: (text: string[]): Promise<TTSTaskResponse> =>
+  createTTSTask: (text: string[], voiceConfig: VoiceConfig): Promise<TTSTaskResponse> =>
     apiClient.post('/api/miaoda/runtime/apicenter/source/proxy/ttslongnY1YrenyAFtHN3S38sQFYZ', {
       text,
       format: 'mp3-16k',
-      voice: 3,
-      speed: 5,
-      pitch: 5,
-      volume: 8,
+      voice: voiceConfig.voice,
+      speed: voiceConfig.speed,
+      pitch: voiceConfig.pitch,
+      volume: voiceConfig.volume,
       break: 500,
     }),
 

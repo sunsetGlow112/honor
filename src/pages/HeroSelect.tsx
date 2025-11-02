@@ -17,7 +17,7 @@ export default function HeroSelect() {
   // 英雄头像的位置映射（根据image-3.png中的布局）
   const heroPositions = [
     { id: 'kai', style: { top: '32%', left: '18%' } },
-    { id: 'hero2', style: { top: '32%', left: '28%' } },
+    { id: 'caiweniji', style: { top: '32%', left: '28%' } },
     { id: 'hero3', style: { top: '32%', left: '38%' } },
     { id: 'hero4', style: { top: '32%', left: '48%' } },
     { id: 'hero5', style: { top: '32%', left: '58%' } },
@@ -34,8 +34,8 @@ export default function HeroSelect() {
   ];
 
   const handleHeroClick = (heroId: string) => {
-    // 只有凯和hero2有详情页
-    if (heroId === 'kai' || heroId === 'hero2') {
+    // 只有凯和蔡文姬有详情页
+    if (heroId === 'kai' || heroId === 'caiweniji') {
       navigate(`/hero-detail/${heroId}`);
     } else {
       toast({
