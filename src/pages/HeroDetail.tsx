@@ -44,7 +44,34 @@ export default function HeroDetail() {
   };
 
   const handleAudioClick = async () => {
-    // 检查是否有缓存的语音URL
+    // 1. 优先尝试加载本地音频文件
+    if (hero.localAudioFile) {
+      const localAudioPath = `/audio/${hero.localAudioFile}`;
+      
+      try {
+        // 检查本地文件是否存在
+        const response = await fetch(localAudioPath, { method: 'HEAD' });
+        
+        if (response.ok) {
+          // 本地文件存在，直接使用
+          if (audioRef.current) {
+            audioRef.current.pause();
+          }
+          const audio = new Audio(localAudioPath);
+          audioRef.current = audio;
+          audio.play();
+          toast({
+            title: '播放语音',
+            description: `正在播放${hero.name}的语音（本地文件）`,
+          });
+          return;
+        }
+      } catch (error) {
+        console.log('本地音频文件不存在，将使用AI生成:', error);
+      }
+    }
+
+    // 2. 检查是否有缓存的语音URL
     const cachedUrl = localStorage.getItem(`hero_audio_${heroId}`);
     
     if (cachedUrl) {
@@ -62,7 +89,7 @@ export default function HeroDetail() {
       return;
     }
 
-    // 如果有内存中的URL，直接播放
+    // 3. 如果有内存中的URL，直接播放
     if (audioUrl && audioRef.current) {
       audioRef.current.play();
       toast({
@@ -72,6 +99,7 @@ export default function HeroDetail() {
       return;
     }
 
+    // 4. 调用AI生成语音
     setIsLoadingAudio(true);
     try {
       const taskResponse = await api.createTTSTask(hero.voiceText, hero.voiceConfig);
@@ -114,7 +142,7 @@ export default function HeroDetail() {
 
           toast({
             title: '播放语音',
-            description: `正在播放${hero.name}的语音`,
+            description: `正在播放${hero.name}的语音（AI生成）`,
           });
         } else if (taskInfo.task_status === 'Failed') {
           throw new Error('语音生成失败');

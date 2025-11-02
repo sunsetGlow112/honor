@@ -11,6 +11,7 @@ export interface Hero {
   voiceText: string[];
   detailImage: string;
   voiceConfig: VoiceConfig;
+  localAudioFile?: string;
   cachedAudioUrl?: string;
 }
 
@@ -18,6 +19,7 @@ export const heroes: Hero[] = [
   {
     id: 'kai',
     name: '凯',
+    localAudioFile: 'kai.mp4',
     voiceText: [
       '四和十，十和四，十四和四十，四十和十四。',
       '说好四和十得靠舌头和牙齿：谁说四十是"细席"，他的舌头没用力；',
@@ -35,6 +37,7 @@ export const heroes: Hero[] = [
   {
     id: 'caiweniji',
     name: '蔡文姬',
+    localAudioFile: 'caiweniji.mp4',
     voiceText: [
       '请模仿穿边这个表情包。',
       '老师拍照留念。',
@@ -50,6 +53,7 @@ export const heroes: Hero[] = [
   {
     id: 'sunwukong',
     name: '孙悟空',
+    localAudioFile: 'sunwukong.mp4',
     voiceText: [
       '歌唱一首《孤勇者》',
       '爱你孤身走暗巷，爱你不跪的模样',
@@ -71,6 +75,7 @@ export const heroes: Hero[] = [
   {
     id: 'houyi',
     name: '后羿',
+    localAudioFile: 'houyi.mp4',
     voiceText: [
       '走猫步',
       '绕全班过道用猫步走一圈，',
@@ -88,6 +93,7 @@ export const heroes: Hero[] = [
   {
     id: 'zhubajie',
     name: '猪八戒',
+    localAudioFile: 'zhubajie.mp4',
     voiceText: [
       '四小天鹅',
       '请找到你的小伙伴，并像',
@@ -105,6 +111,7 @@ export const heroes: Hero[] = [
   {
     id: 'lvbu',
     name: '吕布',
+    localAudioFile: 'lvbu.mp4',
     voiceText: [
       '来跳舞吧',
       '请拉上你两个好朋友',
@@ -121,6 +128,7 @@ export const heroes: Hero[] = [
   {
     id: 'guanyu',
     name: '关羽',
+    localAudioFile: 'guanyu.mp4',
     voiceText: [
       '表演一段才艺',
       '请上台表演一段你最拿手的才艺，',
